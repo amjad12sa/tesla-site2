@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-t="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tesla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0e14;--pn:#111823;--pn2:#162030;--ln:#1f2a3a;--tx:#e6edf6;--mu:#8a97aa;--red:#ff3b4e;--amb:#ffb020;--tea:#19c3a6;--blu:#5aa9ff;--r:14px}
+[data-t=light]{--bg:#f3f5f9;--pn:#fff;--pn2:#eef2f8;--ln:#dde3ed;--tx:#0f1722;--mu:#5d6b80;--red:#d9192d;--amb:#b87400;--tea:#0a8f79;--blu:#1c6fd1}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--tx);font:400 16px/1.7 Tajawal,Tahoma,system-ui,sans-serif;min-height:100vh}
+a{color:inherit}button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--blu);outline-offset:2px}
+header{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--ln)}
+.hd{max-width:1100px;margin:auto;padding:10px 18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.logo{font-weight:800;font-size:22px;letter-spacing:.12em;color:var(--red)}
+nav{display:flex;gap:4px;flex:1;overflow-x:auto}
+nav button{background:none;border:0;padding:8px 14px;border-radius:999px;color:var(--mu);white-space:nowrap}
+nav button[aria-current=page]{background:var(--pn2);color:var(--tx);font-weight:700}
+nav .cy[aria-current=page]{background:var(--red);color:#fff}
+.tg{display:flex;gap:6px}.tg button{background:var(--pn);border:1px solid var(--ln);border-radius:8px;padding:4px 10px;font-size:14px}
+main{max-width:1100px;margin:auto;padding:22px 18px 60px}
+.pg{display:none}.pg.on{display:block}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.25;font-weight:800}
+.mu{color:var(--mu)}
+.ph{padding:50px 0}.ph p{max-width:560px;margin:12px 0 22px}
+.btn{background:var(--red);color:#fff;border:0;padding:10px 22px;border-radius:10px;font-weight:700}
+.meter{display:grid;grid-template-columns:1.3fr repeat(4,1fr);gap:12px;margin-bottom:16px}
+.box{background:var(--pn);border:1px solid var(--ln);border-radius:var(--r);padding:14px 16px}
+.lv .segs{display:flex;gap:5px;margin:8px 0 6px}.lv .segs i{flex:1;height:10px;border-radius:3px;background:var(--ln)}
+.lv .name{font-size:24px;font-weight:800}
+.num{font-size:30px;font-weight:800;line-height:1.1}.lab{font-size:13px;color:var(--mu)}
+.tick{overflow:hidden;border:1px solid var(--ln);border-radius:10px;background:var(--pn);margin-bottom:16px;display:flex;align-items:center}
+.tick b{background:var(--red);color:#fff;padding:6px 14px;font-size:13px;flex:none}
+.tick .tr{overflow:hidden;flex:1;white-space:nowrap}
+.tick .in{display:inline-block;animation:tk 60s linear infinite;padding-inline:16px}
+.tick span{margin-inline-end:42px;font-size:14px}.tick span:before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--red);margin-inline-end:10px}
+@keyframes tk{to{transform:translateX(-50%)}}[dir=rtl] .tick .in{animation-name:tkr}@keyframes tkr{to{transform:translateX(50%)}}
+.hero{border-radius:18px;padding:28px;margin-bottom:18px;background:linear-gradient(135deg,var(--pn2),var(--pn));border:1px solid var(--ln);position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset-block:0;inset-inline-start:0;width:5px;background:var(--red)}
+.hero h2{font-size:clamp(22px,3.6vw,32px);line-height:1.35;margin:10px 0}
+.hero p{max-width:760px;color:var(--mu)}
+.tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+.tools input{flex:1;min-width:180px;background:var(--pn);border:1px solid var(--ln);border-radius:10px;padding:9px 14px;color:var(--tx);font:inherit}
+.chip{background:var(--pn);border:1px solid var(--ln);border-radius:999px;padding:6px 14px;font-size:14px}
+.chip[aria-pressed=true]{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+.feed{display:flex;flex-direction:column;gap:12px}
+.card{background:var(--pn);border:1px solid var(--ln);border-radius:var(--r);padding:16px 18px 16px 18px;display:grid;grid-template-columns:14px 1fr;gap:14px;transition:border-color .15s}
+.card:hover{border-color:var(--mu)}
+.dot{width:10px;height:10px;border-radius:50%;margin-top:9px;background:var(--mu)}
+.critical .dot{background:var(--red)}.important .dot{background:var(--amb)}.notable .dot{background:var(--tea)}
+.card h3{font-size:18px;line-height:1.5;font-weight:700}
+.card p{color:var(--mu);margin-top:4px;font-size:15px}
+.bd{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px}
+.b{font-size:12px;padding:1px 10px;border-radius:999px;border:1px solid var(--ln);color:var(--mu)}
+.b.critical{color:var(--red);border-color:var(--red)}.b.important{color:var(--amb);border-color:var(--amb)}.b.notable{color:var(--tea);border-color:var(--tea)}
+.b.ex{background:var(--red);color:#fff;border-color:var(--red);animation:pl 1.8s ease-in-out infinite}
+@keyframes pl{50%{opacity:.55}}
+.b.ar{color:var(--blu);border-color:var(--blu)}.b.cve{direction:ltr;font-variant-numeric:tabular-nums}
+.mt{display:flex;gap:14px;align-items:center;margin-top:10px;font-size:13px;color:var(--mu);flex-wrap:wrap}
+.mt button{background:none;border:0;color:var(--blu);padding:0;font-size:13px}
+.mt a{color:var(--blu);text-decoration:none}
+.alt{display:none;margin-top:8px;padding-top:8px;border-top:1px dashed var(--ln);direction:ltr;text-align:left}
+.card.open .alt{display:block}
+.note{background:var(--pn2);border:1px dashed var(--amb);color:var(--amb);padding:8px 14px;border-radius:10px;font-size:14px;margin-bottom:14px}
+.empty{padding:40px;text-align:center;color:var(--mu)}
+.toast{position:fixed;inset-block-end:18px;inset-inline:0;margin:auto;width:max-content;background:var(--red);color:#fff;border:0;border-radius:999px;padding:10px 22px;font-weight:700;display:none;z-index:9}
+.toast.on{display:block}
+@media(max-width:760px){.meter{grid-template-columns:1fr 1fr}.lv{grid-column:1/-1}.hero{padding:20px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<header><div class="hd">
+<span class="logo">TESLA</span>
+<nav id="nav"></nav>
+<div class="tg"><button id="bl" aria-label="language">EN</button><button id="bt" aria-label="theme">◐</button></div>
+</div></header>
+<main>
+<section class="pg" id="home"><div class="ph"><h1 data-k="h_t"></h1><p class="mu" data-k="h_p"></p><button class="btn" id="go" data-k="h_b"></button></div></section>
+<section class="pg" id="about"><div class="ph"><h1 data-k="about"></h1><p class="mu" data-k="soon"></p></div></section>
+<section class="pg" id="prog"><div class="ph"><h1 data-k="prog"></h1><p class="mu" data-k="soon"></p></div></section>
+<section class="pg" id="upd"><div class="ph"><h1 data-k="upd"></h1><p class="mu" data-k="soon"></p></div></section>
+<section class="pg" id="cyber">
+<div id="sample" class="note" hidden data-k="sample"></div>
+<div class="meter">
+<div class="box lv"><div class="lab" data-k="threat"></div><div class="segs"><i></i><i></i><i></i><i></i></div><div class="name" id="lvn">-</div></div>
+<div class="box"><div class="num" id="s1">0</div><div class="lab" data-k="s1"></div></div>
+<div class="box"><div class="num" id="s2">0</div><div class="lab" data-k="s2"></div></div>
+<div class="box"><div class="num" id="s3">0</div><div class="lab" data-k="s3"></div></div>
+<div class="box"><div class="num" id="s4">0</div><div class="lab" data-k="s4"></div></div>
+</div>
+<div class="tick"><b data-k="urgent"></b><div class="tr"><div class="in" id="tk"></div></div></div>
+<div id="hero"></div>
+<div class="tools"><input id="q" type="search" data-p="search"><span id="chips"></span></div>
+<div class="feed" id="feed"></div>
+<p class="mu" style="margin-top:16px;font-size:13px" id="upl"></p>
+</section>
+</main>
+<button class="toast" id="toast"></button>
+<script>
+const L={ar:{home:'الرئيسية',about:'عن Tesla',prog:'برامج Tesla',upd:'تحديثات Tesla',cyber:'أخبار السايبر',h_t:'Tesla: كل ما يخص الأمن السيبراني بمكان واحد',h_p:'برامج وتحديثات وأخبار مختارة بعناية، بدون ضجيج.',h_b:'تصفح أخبار السايبر',soon:'سيُضاف المحتوى هنا قريبًا.',threat:'مستوى التهديد (24 ساعة)',s1:'أخبار حرجة',s2:'ثغرات مستغلة فعليًا',s3:'أخبار اليوم',s4:'تخص العالم العربي',urgent:'عاجل',search:'ابحث بالأخبار',all:'الكل',critical:'حرج',important:'مهم',notable:'لافت',arab:'عربي',ex:'مستغلة فعليًا',zd:'ثغرة يوم الصفر',lv:['هادئ','متوسط','مرتفع','حرج'],en:'English',ar2:'عربي',src:'المصدر',read:'قراءة الخبر',more:'النسخة الإنجليزية',new:'أخبار جديدة، اضغط للعرض',empty:'لا توجد أخبار مطابقة.',upl:'آخر تحديث',sample:'عرض تجريبي: ستظهر الأخبار الحقيقية عندما يرفع الأيجنت أول ملف بيانات.',ago:['الآن','قبل {n} دقيقة','قبل {n} ساعة','قبل {n} يوم']},
+en:{home:'Home',about:'About Tesla',prog:'Tesla Programs',upd:'Tesla Updates',cyber:'Cyber News',h_t:'Tesla: everything cyber, in one place',h_p:'Programs, updates and carefully picked news, without the noise.',h_b:'Browse cyber news',soon:'Content is coming soon.',threat:'Threat level (24h)',s1:'Critical stories',s2:'Exploited in the wild',s3:'Stories today',s4:'Arab world',urgent:'Breaking',search:'Search the news',all:'All',critical:'Critical',important:'Important',notable:'Notable',arab:'Arab',ex:'Exploited in the wild',zd:'Zero-day',lv:['Calm','Moderate','High','Severe'],en:'العربية',ar2:'English',src:'Source',read:'Read the story',more:'Arabic version',new:'new stories, click to show',empty:'No matching stories.',upl:'Last updated',sample:'Demo view: real stories appear once the agent pushes its first data file.',ago:['just now','{n} min ago','{n} h ago','{n} d ago']}};
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const S={lang:localStorage.getItem('lg')||'ar',theme:localStorage.getItem('th')||'dark',page:'home',tier:'all',q:'',items:[],seen:new Set(),updated:null,sample:false};
+const T=k=>L[S.lang][k];
+const SAMPLE=[{id:'s1',ts:Date.now()/1e3-3600,tier:'critical',score:92,source:'Demo',url:'#',title_ar:'ثغرة مستغلة فعليًا تستهدف أجهزة الشبكات المؤسسية',title_en:'Actively exploited flaw targets enterprise network devices',sum_ar:'خبر تجريبي لعرض الشكل. سيحل محله خبر حقيقي من الأيجنت.',sum_en:'A demo story to show the layout. A real one will replace it.',cves:['CVE-2026-0001'],flags:['exploited']},{id:'s2',ts:Date.now()/1e3-9000,tier:'important',score:64,source:'Demo',url:'#',title_ar:'اختراق بنك إقليمي يكشف بيانات عملاء',title_en:'Regional bank breach exposes customer data',sum_ar:'خبر تجريبي ثانٍ.',sum_en:'A second demo story.',cves:[],flags:['arab','breach']},{id:'s3',ts:Date.now()/1e3-30000,tier:'notable',score:48,source:'Demo',url:'#',title_ar:'تقنية جديدة لاكتشاف البرمجيات الخبيثة بالذاكرة',title_en:'New technique detects in-memory malware',sum_ar:'خبر تجريبي ثالث.',sum_en:'A third demo story.',cves:[],flags:[]}];
+function ago(ts){const d=Date.now()/1e3-ts,a=L[S.lang].ago;if(d<90)return a[0];if(d<5400)return a[1].replace('{n}',Math.round(d/60));if(d<129600)return a[2].replace('{n}',Math.round(d/3600));return a[3].replace('{n}',Math.round(d/86400))}
+function h(t,c,x){const e=document.createElement(t);if(c)e.className=c;if(x!=null)e.textContent=x;return e}
+function badges(i){const w=h('div','bd');w.append(h('span','b '+i.tier,T(i.tier)));const f=i.flags||[];if(f.includes('exploited'))w.append(h('span','b ex',T('ex')));if(f.includes('zeroday'))w.append(h('span','b',T('zd')));if(f.includes('arab'))w.append(h('span','b ar',T('arab')));(i.cves||[]).slice(0,3).forEach(c=>w.append(h('span','b cve',c)));return w}
+const ti=i=>S.lang==='ar'?i.title_ar||i.title_en:i.title_en||i.title_ar,su=i=>S.lang==='ar'?i.sum_ar||i.sum_en:i.sum_en||i.sum_ar;
+function link(i){const a=h('a','',T('read'));a.href=i.url;a.target='_blank';a.rel='noopener noreferrer';return a}
+function render(){
+ document.documentElement.lang=S.lang;document.documentElement.dir=S.lang==='ar'?'rtl':'ltr';document.documentElement.dataset.t=S.theme;
+ $('#bl').textContent=T('en');
+ $$('[data-k]').forEach(e=>e.textContent=T(e.dataset.k));$$('[data-p]').forEach(e=>e.placeholder=T(e.dataset.p));
+ const nav=$('#nav');nav.replaceChildren();
+ [['home','home'],['about','about'],['prog','prog'],['upd','upd'],['cyber','cyber']].forEach(([p,k])=>{const b=h('button',p==='cyber'?'cy':'',T(k));if(S.page===p)b.setAttribute('aria-current','page');b.onclick=()=>go(p);nav.append(b)});
+ $$('.pg').forEach(e=>e.classList.toggle('on',e.id===S.page));
+ $('#sample').hidden=!S.sample;
+ const it=S.items.slice().sort((a,b)=>b.ts-a.ts),now=Date.now()/1e3,d24=it.filter(i=>now-i.ts<86400);
+ const cr=d24.filter(i=>i.tier==='critical').length,ex=d24.filter(i=>(i.flags||[]).includes('exploited')).length,ar=d24.filter(i=>(i.flags||[]).includes('arab')).length;
+ $('#s1').textContent=cr;$('#s2').textContent=ex;$('#s3').textContent=d24.length;$('#s4').textContent=ar;
+ const pts=cr*3+d24.filter(i=>i.tier==='important').length+ex*2,lv=pts<4?0:pts<9?1:pts<16?2:3,col=['var(--tea)','var(--amb)','var(--red)','var(--red)'][lv];
+ $$('.segs i').forEach((e,n)=>e.style.background=n<=lv?col:'var(--ln)');$('#lvn').textContent=T('lv')[lv];$('#lvn').style.color=col;
+ const top=it.filter(i=>i.tier!=='notable').slice(0,6),tk=$('#tk');tk.replaceChildren();[...top,...top].forEach(i=>tk.append(h('span','',ti(i))));
+ const hero=it.filter(i=>now-i.ts<259200).sort((a,b)=>b.score-a.score)[0]||it[0],hb=$('#hero');hb.replaceChildren();
+ if(hero){const w=h('div','hero');w.append(badges(hero),h('h2','',ti(hero)),h('p','',su(hero)));const m=h('div','mt');m.append(h('span','',hero.source+' · '+ago(hero.ts)),link(hero));w.append(m);hb.append(w)}
+ const ch=$('#chips');ch.replaceChildren();['all','critical','important','notable'].forEach(k=>{const b=h('button','chip',T(k));b.setAttribute('aria-pressed',S.tier===k);b.onclick=()=>{S.tier=k;render()};ch.append(b)});
+ const q=S.q.toLowerCase(),list=it.filter(i=>i!==hero&&(S.tier==='all'||i.tier===S.tier)&&(!q||(ti(i)+su(i)+(i.source||'')).toLowerCase().includes(q))),fd=$('#feed');fd.replaceChildren();
+ if(!list.length)fd.append(h('div','empty',T('empty')));
+ list.forEach(i=>{const c=h('article','card '+i.tier);c.append(h('span','dot'));const b=h('div');b.append(badges(i),h('h3','',ti(i)),h('p','',su(i)));
+  const alt=h('div','alt');alt.append(h('b','',(S.lang==='ar'?i.title_en:i.title_ar)||''),h('p','',(S.lang==='ar'?i.sum_en:i.sum_ar)||''));
+  const m=h('div','mt');m.append(h('span','',i.source+' · '+ago(i.ts)));
+  const t=h('button','',T('more'));t.onclick=()=>c.classList.toggle('open');m.append(t,link(i));b.append(alt,m);c.append(b);fd.append(c)});
+ $('#upl').textContent=S.updated?T('upl')+': '+new Date(S.updated).toLocaleString(S.lang==='ar'?'ar':'en'):'';
+}
+function go(p){S.page=p;location.hash=p;render();scrollTo(0,0)}
+async function load(first){
+ try{const r=await fetch('data/cyber-news.json?'+Date.now(),{cache:'no-store'});if(!r.ok)throw 0;const d=await r.json();
+  const fresh=(d.items||[]).filter(i=>!S.seen.has(i.id));
+  if(!first&&fresh.length&&!S.sample){const t=$('#toast');t.textContent=fresh.length+' '+T('new');t.classList.add('on');t.onclick=()=>{t.classList.remove('on');go('cyber')}}
+  (d.items||[]).forEach(i=>S.seen.add(i.id));S.items=d.items||[];S.updated=d.updated;S.sample=false}
+ catch(e){if(first){S.items=SAMPLE;S.sample=true}}
+ render()}
+$('#bl').onclick=()=>{S.lang=S.lang==='ar'?'en':'ar';localStorage.setItem('lg',S.lang);render()};
+$('#bt').onclick=()=>{S.theme=S.theme==='dark'?'light':'dark';localStorage.setItem('th',S.theme);render()};
+$('#go').onclick=()=>go('cyber');$('#q').oninput=e=>{S.q=e.target.value;render()};
+addEventListener('hashchange',()=>{const p=location.hash.slice(1);if($('#'+p)&&p!==S.page){S.page=p;render()}});
+S.page=['home','about','prog','upd','cyber'].includes(location.hash.slice(1))?location.hash.slice(1):'home';
+load(true);setInterval(()=>load(false),300000);
+</script>
+</body>
+</html>
